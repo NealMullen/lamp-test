@@ -14,8 +14,7 @@
 				$page=$_GET["page"];
 			endif;
 
-			$statement = $conn->prepare("SELECT * from pages where id = :id");
-			$statement->execute(array(':id' => $page));
+			$statement = $conn->prepare("SELECT * from pages where id = $page");
 			$row = $statement->fetch();?>
 
 			<h1><?php $row['title'];?></h1>
