@@ -15,7 +15,9 @@
 			endif;
 
 			$statement = $conn->prepare("SELECT * from pages where id = $page");
-			$row = $statement->fetch();?>
+			$statement->execute();
+			$row = $statement->fetch(PDO::FETCH_ASSOC);
+			 ?>
 
 			<h1><?php $row['title'];?></h1>
 			<p><?php $row['content'];?></p>
