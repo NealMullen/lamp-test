@@ -14,7 +14,7 @@
 				$page=$_GET["page"];
 			endif;
 
-			$sth = $dbh->prepare('SELECT * FROM pages WHERE id = :id');
+			$sth = $conn->prepare('SELECT * FROM pages WHERE id = :id');
 			$sth->bindParam(':id', $page);
 			$sth->execute();
 			$row = $sth->fetch(PDO::FETCH_ASSOC);
