@@ -14,8 +14,7 @@
 				$page=$_GET["page"];
 			endif;
 
-			$statement = $conn->prepare("SELECT * from pages where id = $page");
-			$statement->execute();
+			$statement = $conn->query("SELECT * from pages where id = $page");
 			$row = $statement->fetch(PDO::FETCH_ASSOC);
 			 ?>
 
