@@ -24,8 +24,7 @@
 			}
 
 			$row = $sth->fetch(PDO::FETCH_ASSOC);
-			$rows = $sth->fetch(PDO::FETCH_NUM);
-			echo $rows[0];
+			print_r($row);
 			 ?>
 
 			<h1><?php $row['title'];?></h1>
