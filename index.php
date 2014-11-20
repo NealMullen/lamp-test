@@ -17,6 +17,12 @@
 			$sth = $conn->prepare('SELECT * FROM pages WHERE id = :id');
 			$sth->bindParam(':id', $page);
 			$sth->execute();
+			if ($sth->rowCount() > 0) {
+			  	echo "RESULT";
+			} else {
+			   echo 'nothing';
+			}
+
 			$row = $sth->fetch(PDO::FETCH_ASSOC);
 			$rows = $sth->fetch(PDO::FETCH_NUM);
 			echo $rows[0];
