@@ -14,8 +14,13 @@
 				$page=$_GET["page"];
 			endif;
 
-			$statement = $conn->query("SELECT * from pages where id = $page");
-			$row = $statement->fetch(PDO::FETCH_ASSOC);
+			$sth = $dbh->prepare('SELECT * FROM pages WHERE id = :id');
+			$sth->bindParam(':id', $calories);
+			$sth->bindParam(':colour', $page);
+			$sth->execute();
+			$row = $sth->fetch(PDO::FETCH_ASSOC);
+			$rows = $sth->fetch(PDO::FETCH_NUM);
+			echo $rows[0];
 			 ?>
 
 			<h1><?php $row['title'];?></h1>
