@@ -15,8 +15,7 @@
 			endif;
 
 			$sth = $dbh->prepare('SELECT * FROM pages WHERE id = :id');
-			$sth->bindParam(':id', $calories);
-			$sth->bindParam(':colour', $page);
+			$sth->bindParam(':id', $page);
 			$sth->execute();
 			$row = $sth->fetch(PDO::FETCH_ASSOC);
 			$rows = $sth->fetch(PDO::FETCH_NUM);
